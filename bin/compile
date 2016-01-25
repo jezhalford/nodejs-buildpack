@@ -6,6 +6,9 @@ set -o pipefail   # don't ignore exit codes when piping output
 set -o nounset    # fail on unset variables
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
+wget http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf/0.12/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb
+
 ### Constants
 
 DEFAULT_CACHE="node_modules bower_components"
