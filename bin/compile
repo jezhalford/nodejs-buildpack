@@ -6,6 +6,14 @@ set -o pipefail   # don't ignore exit codes when piping output
 set -o nounset    # fail on unset variables
 unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
 
+mkdir .extra_bin
+
+cd .extra_bin
+wget http://10.113.140.187:8081/nexus/content/sites/binaries/wkhtmltopdf/wkhtmltopdf
+wget http://10.113.140.187:8081/nexus/content/sites/binaries/pdftk/pdftk
+cd ../
+
+
 ### Constants
 
 DEFAULT_CACHE="node_modules bower_components"
@@ -20,7 +28,7 @@ $BP_DIR/compile-extensions/bin/check_stack_support
 
 mkdir -p "$BUILD_DIR/.heroku/node/"
 cd $BUILD_DIR
-export PATH="$BUILD_DIR/.heroku/node/bin":$PATH
+export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.extra_bin":$PATH
 
 # CF Common
 export BUILDPACK_PATH=$BP_DIR
