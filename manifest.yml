@@ -43,6 +43,12 @@ dependencies:
     cf_stacks:
       - cflinuxfs2
   - name: node
+    version: 4.1.2
+    url: https://nodejs.org/dist/v4.1.2/node-v4.1.2-linux-x64.tar.gz
+    md5: 0fdf4986da53ea7828ed3aa651a23834
+    cf_stacks:
+      - cflinuxfs2
+  - name: node
     version: 4.2.5
     uri: https://pivotal-buildpacks.s3.amazonaws.com/concourse-binaries/node/node-4.2.5-linux-x64.tgz
     md5: 081481f48b7bfabad8e2439e8aff860e
